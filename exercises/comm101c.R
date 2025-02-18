@@ -6,5 +6,17 @@ library(ggplot2)
 # 2) Clean up the axis labels
 # 3) Make the color vary by island
 # 4) Choose a color palette that you enjoy!
-ggplot(penguins, aes(island, body_mass_g)) +
-  geom_boxplot()
+
+okabe_ito <- c("#0072B2", "#F0E442", "#009E73", "#56B4E9", "#E69F00")
+ggplot(penguins, aes(island, body_mass_g,
+       fill = island)) +
+  geom_boxplot() +
+  theme_bw() +
+  labs(x = "Island",
+       y = "Body Mass (g)",
+       fill = "Island") +
+  theme(legend.position = "inside",
+        legend.position.inside = c(0.99, 0.99),
+        legend.justification = c(1,1)) +
+  scale_fill_manual(values = okabe_ito)
+
