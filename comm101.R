@@ -43,13 +43,13 @@ ggsave("comm101p7.png")
 # the following categories: visually differentiating the oceans, appropriateness
 # of the labels, or use of negative space. Save this figure as “comm101p8.png”.
 ocean_color <- c("#0072B2","#E69F00","#56B4E9","#F0E442")
-ggplot(woa_sal, aes(x=latitude, y=salinity, color = ocean)) +
+ggplot(woa_sal, aes(x=salinity, y=latitude, color = ocean)) +
   geom_point() +
   theme_bw() +
   scale_color_manual(values = ocean_color) +
   theme(legend.position = "inside",
-        legend.position.inside = c(0.50, 0.30)) +
-  labs (x = "Latitude",
-        y = "Salinity (ppt)",
+        legend.position.inside = c(0.30, 0.50)) +
+  labs (y = "Latitude",
+        x = "Salinity (ppt)",
         color = "Ocean")
 ggsave("comm101p8.png")
